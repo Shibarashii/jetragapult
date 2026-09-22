@@ -5,4 +5,5 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("dbus-update-activation-environment --systemd --all")
     hl.exec_cmd("noctalia")
     hl.exec_cmd("xhost +SI:localuser:root")
+    hl.exec_cmd("sh -c 'echo disabled | sudo tee /sys/bus/usb/devices/3-2.4/power/wakeup'")  --disable mouse wakeup
 end)
