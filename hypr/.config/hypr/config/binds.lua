@@ -138,24 +138,32 @@ hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-cen
 -------------------------------
 
 if device.type == "desktop" then
-	-- DESKTOP
-	package.path = package.path .. ";./?.lua;./?/init.lua"
-	local smw = require("plugins.split-monitor-workspaces")
+	-- DESKTOP: persistent workspaces on both monitors with unique global IDs.
+	local monitors = { MONITOR1, MONITOR2 }
 
-	smw.setup({
-		workspace_count = NUM_WPM, 
-		monitor_priority = { MONITOR1, MONITOR2 },
-	})
+	-- Create NUM_WPM persistent workspaces per monitor.
+	-- Monitor 1 gets 1..NUM_WPM, Monitor 2 gets NUM_WPM+1..2*NUM_WPM, etc.
+	for monIndex, mon in ipairs(monitors) do
+		for i = 1, NUM_WPM do
+			local globalId = (monIndex - 1) * NUM_WPM + i
+			hl.workspace_rule({
+				workspace = tostring(globalId),
+				monitor = mon,
+				persistent = true,
+				default = (i == 1), -- first workspace on each monitor is default
+			})
+		end
+	end
 
-	for i = 1, smw.get_amount_of_workspaces() do
+	-- Keybinds using r~ for per-monitor local numbering.
+	for i = 1, NUM_WPM do
 		local n = tostring(i)
 		if n == "10" then
 			n = "0"
-		end 
-		hl.bind(mainMod .. " +" .. n, smw.workspace(n))
-		hl.bind(mainMod .. " + SHIFT +" .. n, smw.move_to_workspace_silent(n))
+		end
+		hl.bind(mainMod .. " +" .. n, hl.dsp.focus({ workspace = "r~" .. i }))
+		hl.bind(mainMod .. " + SHIFT +" .. n, hl.dsp.window.move({ workspace = "r~" .. i, follow = true }))
 	end
-
 else
 	-- LAPTOP
 	for i = 1, NUM_WPM do
