@@ -8,15 +8,9 @@ return {
 		sections = {
 			lualine_z = {
 				{
-					-- Show the currently connected OpenCode server and its status.
-					-- Wrapped in pcall so lualine still works when opencode.nvim
-					-- hasn't loaded yet (e.g. on startup before a server connects).
+					-- Resolve lazily so opencode.nvim is loaded by render time
 					function()
-						local ok, opencode = pcall(require, "opencode")
-						if ok then
-							return opencode.statusline()
-						end
-						return ""
+						return require("opencode").statusline()
 					end,
 				},
 			},

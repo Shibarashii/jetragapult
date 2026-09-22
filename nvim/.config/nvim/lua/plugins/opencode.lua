@@ -1,4 +1,4 @@
-local opencode_cmd = "opencode --port"
+local opencode_cmd = "opencode"
 
 ---@type snacks.terminal.Opts
 local snacks_terminal_opts = {
@@ -26,16 +26,12 @@ return {
         require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
       end, { desc = "Toggle OpenCode" })
 
-      vim.api.nvim_create_autocmd("User", {
-        pattern = { "OpencodeEvent:tui.command.execute" },
-        callback = function(args)
-          ---@type opencode.server.Event
-          local event = args.data.event
-          if event.properties.command == "prompt.submit" then
-            local win = require("snacks.terminal").get(opencode_cmd, { create = false })
-            if win then
-              win:show()
-            end
+      vim.api.nvim_create_autocmd('User', {
+        pattern = { 'OpencodeEvent:session.execution.started' },
+        callback = function()
+          local win = require('snacks.terminal').get(opencode_cmd, { create = false })
+          if win then
+            win:show()
           end
         end,
       })
@@ -46,9 +42,6 @@ return {
 
       vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Append range to OpenCode", expr = true })
       vim.keymap.set({ "n" },      "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Append line to OpenCode", expr = true })
-
-      vim.keymap.set({ "n" }, "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "Scroll OpenCode up" })
-      vim.keymap.set({ "n" }, "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "Scroll OpenCode down" })
     end,
   },
 }
