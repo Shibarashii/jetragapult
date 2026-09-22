@@ -1,4 +1,5 @@
 -- Hyprland default apps
+local device = require("config.device")
 
 TERMINAL     = "kitty"
 FILE_MANAGER = "dolphin"
@@ -7,9 +8,15 @@ EDITOR       = "nvim"
 CALCULATOR   = "gnome-calculator"
 
 -- Monitors
-MONITOR1 = "eDP-1"
-MONITOR2 = ""
-MONITOR3 = ""
+if device.type == "desktop" then
+  MONITOR1 = "DP-2"
+  MONITOR2 = "DP-1"
+  MONITOR3 = ""
+else
+  MONITOR1 = "eDP-1"
+  MONITOR2 = ""
+  MONITOR3 = ""
+end
 PRIMARY_MONITOR = MONITOR1
 
 -- Workspaces
