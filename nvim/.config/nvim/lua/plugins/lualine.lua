@@ -5,15 +5,15 @@ return {
 		options = {
 			theme = "auto",
 		},
-		sections = {
-			lualine_z = {
-				{
-					-- Resolve lazily so opencode.nvim is loaded by render time
-					function()
-						return require("opencode").statusline()
-					end,
-				},
-			},
-		},
+		-- sections = {
+		-- 	lualine_z = {
+		-- 		{
+		-- 			-- Resolve lazily so opencode.nvim is loaded by render time
+		-- 			function()
+		-- 				return require("opencode").statusline()
+		-- 			end,
+		-- 		},
+		-- 	},
+		-- },
 	},
 }

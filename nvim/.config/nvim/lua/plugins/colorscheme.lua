@@ -47,6 +47,11 @@ return {
 				TelescopeResultsBorder = { fg = colors.green },
 				TelescopePreviewBorder = { fg = colors.green },
 				WhichKeyBorder = { fg = colors.green },
+
+				-- Oil Directories
+				OilDir = { fg = colors.lavender, style = { "bold" } },
+				OilDirIcon = { fg = colors.lavender },
+				OilDirHidden = { fg = colors.overlay1 },
 			}
 		end,
 	},

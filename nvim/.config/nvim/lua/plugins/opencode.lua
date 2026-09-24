@@ -9,39 +9,42 @@ local snacks_terminal_opts = {
 }
 
 return {
-  {
-    "nickjvandyke/opencode.nvim",
-    version = "*", -- Latest stable release
-    config = function()
-      ---@type opencode.Opts
-      vim.g.opencode_opts = {
-        server = {
-          start = function()
-            require("snacks.terminal").open(opencode_cmd, snacks_terminal_opts)
-          end,
-        },
-      }
-
-      vim.keymap.set("n", "<leader>ao", function()
-        require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
-      end, { desc = "Toggle OpenCode" })
-
-      vim.api.nvim_create_autocmd('User', {
-        pattern = { 'OpencodeEvent:session.execution.started' },
-        callback = function()
-          local win = require('snacks.terminal').get(opencode_cmd, { create = false })
-          if win then
-            win:show()
-          end
-        end,
-      })
-
-      -- ── Keymaps ──────────────────────────────────────────────────────────
-      vim.keymap.set({ "n", "x" }, "<leader>aa", function() require("opencode").ask("@this: ") end,   { desc = "Ask OpenCode…" })
-      vim.keymap.set({ "n", "x" }, "<leader>as", function() require("opencode").select() end,          { desc = "Select OpenCode…" })
-
-      vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Append range to OpenCode", expr = true })
-      vim.keymap.set({ "n" },      "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Append line to OpenCode", expr = true })
-    end,
-  },
+  -- {
+  --   "nickjvandyke/opencode.nvim",
+  --   version = "*", -- Latest stable release
+  --   config = function()
+  --     ---@type opencode.Opts
+  --     vim.g.opencode_opts = {
+  --       server = {
+  --         start = function()
+  --           require("snacks.terminal").open(opencode_cmd, snacks_terminal_opts)
+  --         end,
+  --       },
+  --     }
+  --
+  --     vim.keymap.set("n", "<leader>ao", function()
+  --       require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
+  --     end, { desc = "Toggle OpenCode" })
+  --
+  --     vim.api.nvim_create_autocmd('User', {
+  --       pattern = { 'OpencodeEvent:session.execution.started' },
+  --       callback = function()
+  --         local win = require('snacks.terminal').get(opencode_cmd, { create = false })
+  --         if win then
+  --           win:show()
+  --         end
+  --       end,
+  --     })
+  --
+  --     -- ── Keymaps ──────────────────────────────────────────────────────────
+  --     vim.keymap.set({ "n", "x" }, "<leader>aa", function() require("opencode").ask("@this: ") end,   { desc = "Ask OpenCode…" })
+  --     vim.keymap.set({ "n", "x" }, "<leader>as", function() require("opencode").select() end,          { desc = "Select OpenCode…" })
+  --
+  --     vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Append range to OpenCode", expr = true })
+  --     vim.keymap.set({ "n" },      "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Append line to OpenCode", expr = true })
+  --
+  --     vim.keymap.set({ "n" }, "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "Scroll OpenCode up" })
+  --     vim.keymap.set({ "n" }, "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "Scroll OpenCode down" })
+  --   end,
+  -- },
 }

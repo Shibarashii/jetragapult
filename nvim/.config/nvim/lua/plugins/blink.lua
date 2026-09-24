@@ -37,9 +37,10 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-				-- Enable LSP + buffer completions in OpenCode Ask prompts
+				-- -- Enable LSP + buffer completions in OpenCode Ask prompts
 				per_filetype = {
-					opencode_ask = { "lsp", "buffer" },
+					-- opencode_ask = { "lsp", "buffer" },
+          codecompanion = { "codecompanion" },
 				},
 				providers = {
 					lazydev = {
