@@ -10,13 +10,27 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			require("ts-install").setup({
-				ensure_install = { "lua", "javascript", "python", "vim", "vimdoc" },
+				ensure_install = { "lua", "javascript", "python", "vim", "vimdoc", "htmldjango" },
 				auto_install = true,
 			})
 
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function()
 					pcall(vim.treesitter.start)
+				end,
+			})
+
+			vim.filetype.add({
+				pattern = {
+					[".*/templates/.*%.html"] = "htmldjango",
+				},
+			})
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "htmldjango",
+				callback = function()
+					vim.bo.indentexpr = ""
+					vim.bo.smartindent = false
 				end,
 			})
 		end,

@@ -52,6 +52,16 @@ return {
 					-- Show buffer completions when no LSP completions are available
 					-- (recommended by opencode.nvim docs)
 					lsp = { fallbacks = {} },
+					-- Inherit html snippets from friendly-snippets in htmldjango buffers.
+					-- Without this, Django template files only get DTL-aware completions
+					-- but miss all standard HTML tag/attribute snippets.
+					snippets = {
+						opts = {
+							extended_filetypes = {
+								htmldjango = { "html" },
+							},
+						},
+					},
 				},
 			},
 
