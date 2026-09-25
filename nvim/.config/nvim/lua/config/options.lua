@@ -27,7 +27,7 @@ vim.opt.signcolumn = "yes"       -- always show the sign column (prevents layout
 vim.opt.updatetime = 250         -- faster CursorHold / gitsigns / diagnostics (default 4000ms)
 
 -- Vim Diagnostic
-vim.diagnostic.config({
-  virtual_text = { severity = vim.diagnostic.severity.ERROR },
-  virtual_lines = { current_line = true }, -- only show for the line your cursor is on
-})
+-- vim.diagnostic.config({
+--   virtual_text = { severity = vim.diagnostic.severity.ERROR },
+--   virtual_lines = { current_line = true }, -- only show for the line your cursor is on
+-- })

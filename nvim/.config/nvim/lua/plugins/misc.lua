@@ -1,5 +1,5 @@
 -- plugins/misc.lua
--- Plugins: gitsigns, which-key, mini.pairs, render-markdown
+-- Plugins: gitsigns, which-key, mini.pairs, render-markdown, tiny-inline-diagnostic
 return {
 	-- ── Git signs ─────────────────────────────────────────────────────────
 	-- Keymaps follow the official on_attach pattern from:
@@ -118,9 +118,26 @@ return {
 		"MeanderingProgrammer/render-markdown.nvim",
 		-- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
 		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
-		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {},
+	},
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		config = function()
+			require("tiny-inline-diagnostic").setup({
+				options = {
+					multilines = {
+						enabled = true,
+						always_show = true,
+						severity = { vim.diagnostic.severity.ERROR },
+					},
+				},
+			})
+			vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
+		end,
 	},
 }
