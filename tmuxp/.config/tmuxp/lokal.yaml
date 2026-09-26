@@ -1,0 +1,20 @@
+session_name: Lokal
+start_directory: ~/Projects/Lokal
+windows:
+  - window_name: dev 
+    layout: even-horizontal
+    panes:
+      - shell_command: nvim .
+      - shell_command: claude --resume
+  - window_name: servers
+    layout: even-horizontal
+    panes:
+      - shell_command: 
+        - cd Lokal-Admin/
+        - npm run dev
+      - shell_command:
+        - cd Lokal-Backend/
+        - npm run dev
+          
+
+

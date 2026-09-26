@@ -1,0 +1,15 @@
+session_name: Config
+start_directory: ~/Jetragapult/
+windows:
+  - window_name: root 
+    layout: even-horizontal
+    panes:
+      - shell_command: nvim .
+  - window_name: nvim
+    start_directory: ~/Jetragapult/nvim/.config/nvim/
+    layout: even-horizontal
+    panes:
+      - shell_command: nvim .
+          
+
+
