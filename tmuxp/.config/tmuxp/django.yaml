@@ -1,0 +1,11 @@
+session_name: Django
+start_directory: ~/Projects/Django/
+windows:
+  - window_name: dev 
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - nvim .
+          
+
+

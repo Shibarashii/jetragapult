@@ -10,6 +10,13 @@ windows:
     layout: even-horizontal
     panes:
       - shell_command: nvim .
-          
+  - window_name: tmuxp
+    start_directory: ~/Jetragapult/tmuxp/.config/tmuxp/
+    panes:
+      - shell_command: nvim .
+  - window_name: fish
+    start_directory: ~/Jetragapult/fish/.config/fish/
+    panes:
+      - shell_command: nvim .
 
 
