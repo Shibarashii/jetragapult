@@ -5,6 +5,7 @@ return {
 		terminal = {
 			split_side = "right",
 			split_width_percentage = 0.5,
+			auto_insert = false, -- stay in Normal mode when the terminal gains focus; press `i` to type
 		},
 	},
 	-- `cmd` lets lazy.nvim create command stubs that load the plugin on first use,

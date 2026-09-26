@@ -14,6 +14,11 @@ return {
       enabled = true,
       timeout = 3000,
     },
+    terminal = {
+      -- Stay in Normal mode when opening/entering a terminal; press `i` to type
+      start_insert = false,
+      auto_insert = false,
+    },
     picker = {
       enabled = true,
       sources = {
