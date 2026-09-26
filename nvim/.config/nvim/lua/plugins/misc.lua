@@ -92,7 +92,7 @@ return {
 				{ "<leader>t", group = "Toggle" },
 				{ "<leader>o", group = "Oil (files)" },
 				{ "<leader>d", group = "Debug" },
-				{ "<leader>a", group = "AI (OpenCode)" },
+				{ "<leader>a", group = "AI" },
 			},
 		},
 		keys = {
@@ -121,7 +121,10 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
-		opts = {},
+		opts = {
+			-- Activate in codecompanion chat buffers (filetype = "codecompanion"), not just markdown
+			file_types = { "markdown", "codecompanion" },
+		},
 	},
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
