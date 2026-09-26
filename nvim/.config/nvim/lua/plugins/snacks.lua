@@ -16,7 +16,7 @@ return {
     },
     terminal = {
       -- Stay in Normal mode when opening/entering a terminal; press `i` to type
-      start_insert = false,
+      start_insert = true,
       auto_insert = false,
     },
     picker = {
