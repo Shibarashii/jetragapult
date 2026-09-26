@@ -22,7 +22,7 @@ A personal Neovim configuration built on **lazy.nvim**, targeting Lua, Python
 | Git | `gitsigns.nvim` + `snacks.lazygit` | `<leader>h` for hunks, `<leader>gg` for lazygit |
 | Diagnostics | `tiny-inline-diagnostic.nvim` | Neovim virtual_text disabled; multilines on |
 | Debug | `nvim-dap` + `nvim-dap-view` + `mason-nvim-dap` | F5/F9/F10/F11/F12 + `<leader>d` prefix |
-| AI | `opencode.nvim` + `codecompanion.nvim` | `<leader>a` group |
+| AI | `claudecode.nvim` | `<leader>a` group; right split at 50% width via snacks terminal; lazy-loaded on `cmd`/`keys` |
 | Colorscheme | `colorscheme.lua` | catppuccin-family |
 
 ---
@@ -43,7 +43,8 @@ A personal Neovim configuration built on **lazy.nvim**, targeting Lua, Python
     │   └── keymaps.lua         ← Global keymaps + LspAttach autocmd
     └── plugins/
         ├── blink.lua           ← Completion (blink.cmp)
-        ├── codecompanion.lua   ← AI chat (codecompanion)
+        ├── claudecode.lua      ← Claude Code integration (claudecode.nvim)
+        ├── codecompanion.lua   ← AI chat (codecompanion) — currently commented out
         ├── colorscheme.lua     ← Colorscheme
         ├── dap.lua             ← Debug adapter (nvim-dap + dap-view)
         ├── formatter.lua       ← conform.nvim
@@ -53,7 +54,7 @@ A personal Neovim configuration built on **lazy.nvim**, targeting Lua, Python
         ├── misc.lua            ← gitsigns, which-key, mini.pairs, render-markdown, tiny-inline-diagnostic
         ├── nvim-tmux-navigator.lua
         ├── oil.lua             ← File manager
-        ├── opencode.lua        ← AI coding assistant
+        ├── opencode.lua        ← AI coding assistant — currently commented out
         ├── snacks.lua          ← Picker, explorer, git browse, terminal, toggles
         ├── treesitter.lua      ← Parsers + htmldjango filetype detection
         └── trouble.lua         ← Diagnostics list
@@ -124,11 +125,14 @@ return {
 | `<leader>c` | Code actions |
 | `<leader>g` | Format / Git |
 | `<leader>f` | Find (Snacks picker) |
+| `<leader>s` | Search (Snacks picker) |
 | `<leader>h` | Hunk (Git) |
-| `<leader>t` | Toggle |
+| `<leader>t` | Toggle (Git) |
+| `<leader>u` | UI toggles |
+| `<leader>x` | Diagnostics (Trouble) |
 | `<leader>o` | Oil (files) |
 | `<leader>d` | Debug |
-| `<leader>a` | AI (OpenCode) |
+| `<leader>a` | AI (Claude Code) |
 
 > When adding new keymaps under a new `<leader>x` prefix, **add a group label**
 > to the `which-key` spec in `misc.lua`.
