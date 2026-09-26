@@ -10,6 +10,7 @@ return {
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
+      htmldjango = { "djlint" },
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
