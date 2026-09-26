@@ -1,12 +1,12 @@
-local opencode_cmd = "opencode"
-
----@type snacks.terminal.Opts
-local snacks_terminal_opts = {
-  win = {
-    position = "right",
-    enter = false, -- Don't jump into the terminal when it opens
-  },
-}
+-- local opencode_cmd = "opencode"
+--
+-- ---@type snacks.terminal.Opts
+-- local snacks_terminal_opts = {
+--   win = {
+--     position = "right",
+--     enter = false, -- Don't jump into the terminal when it opens
+--   },
+-- }
 
 return {
   -- {
