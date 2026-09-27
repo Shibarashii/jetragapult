@@ -6,6 +6,10 @@ windows:
     panes:
       - shell_command:
           - nvim .
-          
+  - window_name: servers 
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - nvim .
 
 
