@@ -1,6 +1,6 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
-alias tl 'tmuxp load'
+abbr -a tl 'tmuxp load'
 
 # overwrite greeting
 # potentially disabling fastfetchk
