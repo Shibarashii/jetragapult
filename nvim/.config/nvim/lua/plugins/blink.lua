@@ -22,7 +22,10 @@ return {
 			-- C-k: Toggle signature help (if signature.enabled = true)
 			--
 			-- See :h blink-cmp-config-keymap for defining your own keymap
-			keymap = { preset = "super-tab" },
+			keymap = {
+				preset = "super-tab",
+				["<CR>"] = { "accept", "fallback" },
+			},
 
 			appearance = {
 				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -59,6 +62,10 @@ return {
 						opts = {
 							extended_filetypes = {
 								htmldjango = { "html" },
+								-- friendly-snippets registers Django model/view/form/admin/url
+								-- boilerplate under the "django" language key, which nvim never
+								-- uses as a filetype, so it must be pulled in explicitly here.
+								python = { "django" },
 							},
 						},
 					},

@@ -23,6 +23,7 @@ return {
 			javascriptreact = { "prettier" },
 			typescriptreact = { "prettier" },
 			json = { "prettier" },
+			htmldjango = { "djlint" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",

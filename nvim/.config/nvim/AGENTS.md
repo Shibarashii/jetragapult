@@ -12,9 +12,9 @@ A personal Neovim configuration built on **lazy.nvim**, targeting Lua, Python
 | Layer | Tool | Notes |
 |---|---|---|
 | Plugin manager | `lazy.nvim` | Stable branch; lock file at `lazy-lock.json` |
-| LSP | `mason-lspconfig` + `nvim-lspconfig` | `lua_ls`, `pyright`, `ruff`, `ts_ls`, `html` |
-| Formatter | `conform.nvim` | `<leader>gf` to format; format-on-save disabled |
-| Linter | `nvim-lint` | `luacheck`, `eslint_d`; fires on BufWritePost + InsertLeave |
+| LSP | `mason-lspconfig` + `nvim-lspconfig` | `lua_ls`, `pyright`, `ruff`, `ts_ls`, `html`, `emmet_language_server` |
+| Formatter | `conform.nvim` | `<leader>gf` to format; format-on-save disabled; `djlint` for `htmldjango` |
+| Linter | `nvim-lint` | `luacheck`, `eslint_d`, `djlint`; fires on BufWritePost + InsertLeave |
 | Completion | `blink.cmp` | `super-tab` keymap preset; lazydev top priority |
 | Treesitter | `nvim-treesitter` (main) + `ts-install.nvim` | `auto_install = true` |
 | Fuzzy finder | `snacks.nvim` picker | Replaces Telescope; `<leader><space>` for smart find |
@@ -143,13 +143,30 @@ return {
 
 ### Django Support (`SPEC-django-support.md`)
 
-**Status:** Partially implemented.
+**Status:** Implemented, plus a second round of Django-Python tooling.
 
 - ✅ `htmldjango` filetype detection via `vim.filetype.add` pattern in `treesitter.lua`
 - ✅ `htmldjango` indentation fix (indentexpr + smartindent disabled) in `treesitter.lua`
 - ✅ HTML LSP extended to `htmldjango` filetype in `lsp.lua`
 - ✅ blink.cmp snippets: `htmldjango` inherits `html` snippets in `blink.lua`
-- ⬜ Pyright venv resolution — per-project `pyrightconfig.json` recommended; LSP fallback not yet added
+- ✅ Pyright venv resolution — `before_init` fallback in `lsp.lua` sets
+  `pythonPath` to the project's `venv/` or `.venv/` when one exists; a `venv`
+  set in the project's own `pyrightconfig.json` still takes precedence
+- ✅ `djlint` linting for `htmldjango` via `nvim-lint` in `linter.lua`
+- ✅ Emmet expansion in `htmldjango` via `emmet_language_server` (its default
+  filetypes already include `htmldjango`, so no override was needed)
+- ✅ `djlint` formatting for `htmldjango` via conform.nvim (`<leader>gf`) in `formatter.lua`
+- ✅ Django snippets (models/views/forms/admin/urls) in Python buffers via
+  blink.cmp's `extended_filetypes = { python = { "django" } }` in `blink.lua`
+- ✅ `django-template-lsp` (`djlsp`) attached to `htmldjango`/`html` for
+  `{% url %}` completion+navigation, custom tag/filter completion, and
+  `extends`/`include` navigation — `ensure_installed` entry `"djlsp"` in
+  `lsp.lua` (that's the lspconfig server name; the mason package is
+  `django-template-lsp`)
+- ⬜ **Deliberately not added:** `django-language-server` (djls — its own
+  README says most features are incomplete) and Pogo, an ORM
+  lookup-suffix (`field__icontains`) completion server (pre-1.0, no mature
+  alternative exists in this space yet). Revisit if either matures.
 
 ---
 
@@ -172,5 +189,7 @@ return {
 - `tiny-inline-diagnostic` disables `vim.diagnostic.config({ virtual_text = false })` globally — don't re-enable virtual_text elsewhere
 - `snacks.nvim` picker replaces Telescope — use `Snacks.picker.*` not `telescope.builtin.*`
 - `blink.cmp` `lsp` provider has `fallbacks = {}` (empty) to prevent buffer fallback when LSP is active — intentional
-- Mason tool installer manages: `stylua`, `prettier`, `eslint_d`, `luacheck`
+- Mason tool installer manages: `stylua`, `prettier`, `eslint_d`, `luacheck`, `djlint`
+- `mason-lspconfig` also installs `emmet_language_server` and `djlsp`
+  (`django-template-lsp`) as LSP servers, alongside `lua_ls`, `pyright`, `ruff`, `ts_ls`, `html`
 - `mason-nvim-dap` handles `python` and `js` debug adapters automatically via `handlers = {}`
