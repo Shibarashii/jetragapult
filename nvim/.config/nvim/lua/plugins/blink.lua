@@ -40,7 +40,6 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-				-- -- Enable LSP + buffer completions in OpenCode Ask prompts
 				per_filetype = {
 					-- opencode_ask = { "lsp", "buffer" },
           codecompanion = { "codecompanion" },
@@ -49,22 +48,13 @@ return {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
-						-- make lazydev completions top priority (see `:h blink.cmp`)
 						score_offset = 100,
 					},
-					-- Show buffer completions when no LSP completions are available
-					-- (recommended by opencode.nvim docs)
 					lsp = { fallbacks = {} },
-					-- Inherit html snippets from friendly-snippets in htmldjango buffers.
-					-- Without this, Django template files only get DTL-aware completions
-					-- but miss all standard HTML tag/attribute snippets.
 					snippets = {
 						opts = {
 							extended_filetypes = {
 								htmldjango = { "html" },
-								-- friendly-snippets registers Django model/view/form/admin/url
-								-- boilerplate under the "django" language key, which nvim never
-								-- uses as a filetype, so it must be pulled in explicitly here.
 								python = { "django" },
 							},
 						},
@@ -72,11 +62,6 @@ return {
 				},
 			},
 
-			-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-			-- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-			-- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-			--
-			-- See the fuzzy documentation for more information
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 		},
 		opts_extend = { "sources.default" },
