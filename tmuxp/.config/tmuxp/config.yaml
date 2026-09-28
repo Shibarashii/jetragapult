@@ -1,4 +1,4 @@
-session_name: Config
+session_name: config
 start_directory: ~/Jetragapult/
 windows:
   - window_name: root 

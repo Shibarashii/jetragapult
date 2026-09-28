@@ -1,15 +1,19 @@
-session_name: Django
+session_name: django
 start_directory: ~/Projects/Django/
 windows:
   - window_name: dev 
+    start_directory: ~/Projects/Django/LittleLemon/
     layout: even-horizontal
     panes:
-      - shell_command:
-          - nvim .
-  - window_name: servers 
+      - shell_command: 
+        - source .venv/bin/activate.fish
+        - nvim .
+  - window_name: server
+    start_directory: ~/Projects/Django/LittleLemon/
     layout: even-horizontal
     panes:
-      - shell_command:
-          - nvim .
+      - shell_command: 
+        - source .venv/bin/activate.fish
+        - python manage.py runserver
 
 

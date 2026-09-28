@@ -1,4 +1,4 @@
-session_name: Lokal
+session_name: lokal
 start_directory: ~/Projects/Lokal
 windows:
   - window_name: dev 
