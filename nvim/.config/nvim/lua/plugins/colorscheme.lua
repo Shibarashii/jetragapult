@@ -52,6 +52,8 @@ return {
 				OilDir = { fg = colors.lavender, style = { "bold" } },
 				OilDirIcon = { fg = colors.lavender },
 				OilDirHidden = { fg = colors.overlay1 },
+
+				SnacksPickerDirectory = { link = "OilDir" },
 			}
 		end,
 	},
