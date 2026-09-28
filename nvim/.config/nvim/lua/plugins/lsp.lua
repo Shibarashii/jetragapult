@@ -10,6 +10,7 @@ return {
 				"html",
 				"emmet_language_server",
 				"djlsp",
+				"cssls",
 			},
 		},
 		dependencies = {
@@ -52,7 +53,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		dependencies = { "mason-org/mason.nvim" },
 		opts = {
-			ensure_installed = { "stylua", "prettier", "eslint_d", "luacheck", "djlint" },
+			ensure_installed = { "stylua", "prettier", "eslint_d", "luacheck", "djlint", "stylelint" },
 		},
 	},
 	{
