@@ -1,0 +1,18 @@
+session_name: hitboxd
+start_directory: ~/Projects/Django/Hitboxd/
+shell_command_before: 
+  - source .venv/bin/activate.fish
+windows:
+  - window_name: dev 
+    layout: even-horizontal
+    panes:
+      - shell_command: 
+        - nvim .
+      - shell_command: 
+  - window_name: server
+    layout: even-horizontal
+    panes:
+      - shell_command: 
+        - python manage.py runserver
+
+
