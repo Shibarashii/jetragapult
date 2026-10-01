@@ -1,5 +1,5 @@
 -- plugins/misc.lua
--- Plugins: gitsigns, which-key, mini.pairs, render-markdown, tiny-inline-diagnostic
+-- Plugins: gitsigns, which-key, mini.pairs, render-markdown, tiny-inline-diagnostic, markdown-preview
 return {
 	-- ── Git signs ─────────────────────────────────────────────────────────
 	-- Keymaps follow the official on_attach pattern from:
@@ -145,5 +145,14 @@ return {
 			})
 			vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
 		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	},
 }
