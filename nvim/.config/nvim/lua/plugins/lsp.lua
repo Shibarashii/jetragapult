@@ -11,6 +11,7 @@ return {
 				"emmet_language_server",
 				"djlsp",
 				"cssls",
+				"tailwindcss",
 			},
 		},
 		dependencies = {
