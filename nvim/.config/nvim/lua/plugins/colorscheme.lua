@@ -40,6 +40,7 @@ return {
 				FloatBorder = { fg = colors.green },
 				WinSeparator = { fg = colors.green },
 				CursorLineNr = { fg = colors.green, style = { "bold" } },
+        LineNr = {fg = colors.overlay1},
 				Visual = { bg = colors.surface1 },
 				PmenuSel = { bg = colors.green, fg = colors.base },
 				TelescopeBorder = { fg = colors.green },
