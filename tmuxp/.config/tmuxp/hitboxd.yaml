@@ -13,6 +13,6 @@ windows:
     layout: even-horizontal
     panes:
       - shell_command: 
-        - python manage.py runserver
+        - python manage.py tailwind dev
 
 
