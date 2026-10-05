@@ -9,7 +9,7 @@ vim.opt.softtabstop = 2   -- Number of spaces a <Tab> feels like when editing
 
 -- Line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true -- relative numbers for faster j/k jumps
+vim.opt.relativenumber = false -- relative numbers for faster j/k jumps
 
 -- Optional: Auto-indent
 vim.opt.autoindent = true
@@ -26,6 +26,13 @@ vim.opt.smartcase = true         -- ...unless you type an uppercase letter
 vim.opt.signcolumn = "yes"       -- always show the sign column (prevents layout jitter)
 vim.opt.updatetime = 250         -- faster CursorHold / gitsigns / diagnostics (default 4000ms)
 
+vim.opt.sessionoptions:remove("blank")
+
+-- Folding: treesitter-based, so it covers functions/classes/brackets in any
+-- parser already installed (json's {} included), no plugin needed.
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99 -- start with folds open
 -- Vim Diagnostic
 -- vim.diagnostic.config({
 --   virtual_text = { severity = vim.diagnostic.severity.ERROR },

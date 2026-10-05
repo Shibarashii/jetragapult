@@ -10,7 +10,7 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			require("ts-install").setup({
-				ensure_install = { "lua", "javascript", "python", "vim", "vimdoc", "htmldjango" },
+				ensure_install = { "lua", "javascript", "python", "vim", "vimdoc", "htmldjango", "json" },
 				auto_install = true,
 			})
 
