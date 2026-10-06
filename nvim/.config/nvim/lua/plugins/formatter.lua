@@ -29,6 +29,10 @@ return {
 			json = { "prettier" },
 			htmldjango = { "djlint" },
 		},
+		formatters = {
+			prettier = { prepend_args = { "--tab-width", "2" } },
+			djlint = { prepend_args = { "--indent", "2" } },
+		},
 		default_format_opts = {
 			lsp_format = "fallback",
 		},

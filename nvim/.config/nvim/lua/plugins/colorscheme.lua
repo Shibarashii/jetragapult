@@ -43,6 +43,10 @@ return {
         LineNr = {fg = colors.overlay1},
 				Visual = { bg = colors.surface1 },
 				PmenuSel = { bg = colors.green, fg = colors.base },
+
+				BlinkCmpMenu = { bg = colors.mantle },
+				BlinkCmpDoc = { bg = colors.mantle },
+				BlinkCmpSignatureHelp = { bg = colors.mantle },
 				TelescopeBorder = { fg = colors.green },
 				TelescopePromptBorder = { fg = colors.green },
 				TelescopeResultsBorder = { fg = colors.green },
