@@ -7,6 +7,21 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 -- that implements textDocument/linkedEditingRange (the html server does).
 vim.lsp.linked_editing_range.enable()
 
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "Match floating LSP preview windows (hover/signature help) to BlinkCmpDoc background",
+	pattern = "markdown",
+	callback = function(event)
+		if vim.bo[event.buf].buftype ~= "nofile" then
+			return
+		end
+		local win = vim.fn.bufwinid(event.buf)
+		if win == -1 or vim.api.nvim_win_get_config(win).relative == "" then
+			return
+		end
+		vim.wo[win].winhighlight = "NormalFloat:BlinkCmpDoc,FloatBorder:FloatBorder"
+	end,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP actions",
 	callback = function(event)
