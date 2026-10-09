@@ -8,6 +8,7 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     explorer = { enabled = true },
+    image = { enabled = true }, -- renders PNG/etc. buffers via Kitty's graphics protocol
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
