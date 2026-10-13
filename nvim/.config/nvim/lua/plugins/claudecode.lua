@@ -4,7 +4,6 @@ return {
 	opts = {
 		terminal = {
 			split_side = "right",
-			split_width_percentage = 0.5,
 			auto_insert = false, -- stay in Normal mode when the terminal gains focus; press `i` to type
 			snacks_win_opts = {
 				keys = {
