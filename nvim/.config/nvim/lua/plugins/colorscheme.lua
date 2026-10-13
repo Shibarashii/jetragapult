@@ -59,6 +59,16 @@ return {
 				OilDirHidden = { fg = colors.overlay1 },
 
 				SnacksPickerDirectory = { link = "OilDir" },
+
+				-- Match oil-git.nvim's file-status colors (lua/oil-git/config.lua defaults)
+				SnacksPickerGitStatusAdded = { fg = colors.green },
+				SnacksPickerGitStatusModified = { fg = colors.yellow },
+				SnacksPickerGitStatusDeleted = { fg = colors.red },
+				SnacksPickerGitStatusRenamed = { fg = colors.mauve },
+				SnacksPickerGitStatusCopied = { fg = colors.mauve },
+				SnacksPickerGitStatusUntracked = { fg = colors.blue },
+				SnacksPickerGitStatusIgnored = { fg = colors.overlay0 },
+				SnacksPickerGitStatusUnmerged = { fg = colors.peach },
 			}
 		end,
 	},
