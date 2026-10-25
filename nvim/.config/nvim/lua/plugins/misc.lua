@@ -96,6 +96,7 @@ return {
 				{ "<leader>o", group = "Oil (files)" },
 				{ "<leader>d", group = "Debug" },
 				{ "<leader>a", group = "AI (Claude Code)" },
+				{ "<leader>m", group = "Molten (notebook)" },
 			},
 		},
 		keys = {
@@ -125,7 +126,10 @@ return {
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {
-			-- Activate in codecompanion chat buffers (filetype = "codecompanion"), not just markdown
+			-- Activate in codecompanion chat buffers (filetype = "codecompanion"), not just markdown.
+			-- Notebooks ride along too: jupytext.nvim (notebook.lua) converts .ipynb buffers to
+			-- "markdown"/"quarto" filetype, so no separate "ipynb" entry is needed here --
+			-- Neovim itself never assigns that filetype, which made the old entry a no-op.
 			file_types = { "markdown", "codecompanion" },
 		},
 	},
@@ -143,7 +147,8 @@ return {
 					},
 				},
 			})
-			vim.diagnostic.config({ virtual_text = false, -- Disable Neovim's default virtual text diagnostics
+			vim.diagnostic.config({
+				virtual_text = false, -- Disable Neovim's default virtual text diagnostics
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = "",
