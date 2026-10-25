@@ -1,0 +1,10 @@
+session_name: espa
+start_directory: ~/Projects/ESPA-New/
+windows:
+  - window_name: dev 
+    layout: even-horizontal
+    panes:
+      - shell_command: 
+        - nvim .
+
+

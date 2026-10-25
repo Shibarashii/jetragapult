@@ -1,0 +1,16 @@
+session_name: 'pythontest'
+windows:
+- layout: ba5d,213x53,0,0,0
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: nvim . 
+  start_directory: /home/shiba/Temp/PythonUnitTestPractice
+  window_name: fish
+- focus: 'true'
+  layout: ba5e,213x53,0,0,1
+  options: {}
+  panes:
+  - pane
+  start_directory: /home/shiba/Temp/PythonUnitTestPractice
+  window_name: fish

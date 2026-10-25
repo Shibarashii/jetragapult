@@ -18,5 +18,8 @@ windows:
     start_directory: ~/Jetragapult/fish/.config/fish/
     panes:
       - shell_command: nvim .
-
+  - window_name: hypr
+    start_directory: ~/Jetragapult/hypr/.config/hypr/
+    panes:
+      - shell_command: nvim .
 
