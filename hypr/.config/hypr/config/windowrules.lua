@@ -59,10 +59,6 @@ hl.window_rule({
     },
     float = true,
     size = { "max(monitor_w, monitor_h)*0.50", "min(monitor_w, monitor_h)*0.55" },
-    move = {
-        "max(20, min(cursor_x - (window_w*0.50), monitor_w - window_w + 20))", -- X axis clamping
-        "max(20, min(cursor_y - 50, monitor_h - window_h + 20))" -- Y axis clamping
-    },
 })
 
 -- Opacity Overrides
