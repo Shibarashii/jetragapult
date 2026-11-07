@@ -1,0 +1,17 @@
+session_name: pcflipper
+start_directory: ~/Projects/pc-flipper-toolkit/
+windows:
+  - window_name: dev 
+    layout: even-horizontal
+    panes:
+      - shell_command: nvim .
+  - window_name: servers
+    layout: even-horizontal
+    panes:
+      - shell_command: 
+        - cd ~/Projects/pc-flipper-toolkit/backend/
+        - source .venv/bin/activate.fish
+        - python manage.py runserver
+      - shell_command:
+        - cd ~/Projects/pc-flipper-toolkit/frontend/
+        - npm run dev
