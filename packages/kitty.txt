@@ -1,0 +1,5 @@
+# Kitty terminal (TERMINAL in hypr).
+# One package per line; `#` starts a comment. Install: ./install.sh kitty
+
+kitty
+ttf-jetbrains-mono-nerd   # font_family in kitty.conf
