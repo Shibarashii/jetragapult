@@ -1,0 +1,7 @@
+# User templates (dotfile-managed; settings.toml is owned by the Noctalia GUI).
+
+# Recolor Papirus folders to the Papirus color nearest the palette's primary.
+[theme.templates.user.papirus_folders]
+input_path  = "templates/papirus-folders.txt"
+output_path = "$XDG_CACHE_HOME/noctalia/papirus-primary.txt"
+post_hook   = "python3 -I \"$HOME/.config/noctalia/scripts/papirus-folders-sync.py\" \"${XDG_CACHE_HOME:-$HOME/.cache}/noctalia/papirus-primary.txt\""
