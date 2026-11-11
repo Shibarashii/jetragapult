@@ -1,0 +1,21 @@
+# Neovim — what the nvim stow package needs outside of lazy.nvim/Mason.
+# One package per line; `#` starts a comment. Install: ./install.sh nvim
+# LSPs, formatters, linters and debug adapters come from Mason, not here.
+
+neovim
+git                       # lazy.nvim bootstrap + plugin installs
+ripgrep                   # snacks picker grep
+lazygit                   # <leader>gg
+tree-sitter-cli           # nvim-treesitter (main) builds parsers
+luarocks                  # lazy.nvim rocks support
+
+# Mason installers
+npm                       # pulls in nodejs; ts_ls, prettier, eslint_d…
+python-pip                # pyright, ruff, djlint…
+unzip
+
+# notebook.lua
+imagemagick               # image.nvim magick_cli processor
+#python-pynvim             # molten remote plugin host
+#python-jupyter-client     # molten kernels
+#python-jupytext           # AUR; .ipynb <-> markdown
