@@ -1,0 +1,11 @@
+# Hyprland — what the hypr stow package needs to run.
+# One package per line; `#` starts a comment. Install: ./install.sh hypr
+
+hyprland
+hyprpolkitagent               # polkit auth agent (systemd --user service)
+
+# Called directly by hypr/.config/hypr/config/*.lua
+uwsm                          # app launch prefix + session (launchPrefix in binds.lua)
+xdg-desktop-portal-hyprland   # screen sharing / portals (xdph.conf)
+hyprpicker                    # color picker bind
+xorg-xhost                    # autostart: xhost +SI:localuser:root
