@@ -2,7 +2,7 @@
 local device = require("config.device")
 
 TERMINAL     = "kitty"
-FILE_MANAGER = "dolphin"
+FILE_MANAGER = "thunar"
 BROWSER      = "brave-bin"
 EDITOR       = "nvim"
 CALCULATOR   = "gnome-calculator"

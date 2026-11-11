@@ -54,8 +54,8 @@ hl.window_rule({ match = { class = "^(.*swash)$", title = "^(Swash)$" }, min_siz
 hl.window_rule({ match = { class = "^(dev\\.)?(noctalia\\.Noctalia(\\.Settings)?)$" }, float = true, size = { "monitor_w*0.70", "monitor_h*0.70" } })
 hl.window_rule({
     match = {
-        class = "^(org\\.kde\\.dolphin)$",
-        title = "negative:^(Moving.*|Create New.*|Extract.*|Compress.*|Copying.*|Progress.*|Configure.*|Properties.*|Choose\\sApplication.*)$",
+        class = "^([Tt]hunar)$",
+        title = "negative:^(.*Progress.*|Create New.*|Rename.*|.*Properties.*|Open With.*|Confirm.*|Extract.*|Compress.*)$",
     },
     float = true,
     size = { "max(monitor_w, monitor_h)*0.50", "min(monitor_w, monitor_h)*0.55" },
