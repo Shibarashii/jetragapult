@@ -34,7 +34,6 @@ A personal Neovim configuration built on **lazy.nvim**, targeting Lua, Python
 ~/.config/nvim/
 ├── init.lua                    ← Loads config.options, config.lazy, config.keymaps
 ├── lazy-lock.json              ← Plugin pin file — commit changes after :Lazy update
-├── nvim-setup.sh               ← One-time bootstrap script
 ├── AGENTS.md                   ← This file
 ├── CLAUDE.md                   ← Imports AGENTS.md for Claude Code
 └── lua/
@@ -68,6 +67,7 @@ A personal Neovim configuration built on **lazy.nvim**, targeting Lua, Python
 
 ```bash
 # No build step — nvim loads directly from this directory.
+# System deps (not Mason-managed): ~/Jetragapult/install.sh nvim  (list: packages/nvim.txt)
 
 # Inside Neovim:
 :Lazy              # Open plugin manager UI
