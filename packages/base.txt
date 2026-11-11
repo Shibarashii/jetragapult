@@ -1,0 +1,47 @@
+# Apps I use that aren't tied to a stow package.
+# One package per line; `#` starts a comment. Install: ./install.sh base
+# Tools a stow package needs (neovim, tmuxp, yazi, papirus…) go in that package's list.
+
+# Dotfiles tooling
+stow
+yay
+
+# Files (Thunar is FILE_MANAGER in hypr)
+thunar
+thunar-volman
+thunar-archive-plugin
+tumbler                   # thumbnails
+file-roller               # archives
+gvfs
+gvfs-mtp                  # phones
+gvfs-smb                  # network shares
+
+# Launched by hypr keybinds
+brave-bin                 # BROWSER
+btop                      # SUPER bind: kitty -e btop
+gnome-calculator          # CALCULATOR
+
+# Dev
+visual-studio-code-bin    # AUR
+antigravity-ide           # AUR
+antigravity-cli           # AUR
+claude-code
+claude-desktop
+opencode
+github-cli
+postman-bin               # AUR
+postgresql
+
+# Media / office / chat
+spotify                   # AUR
+mpv
+onlyoffice-bin
+photogimp                 # AUR; pulls in gimp
+discord
+steam
+
+# Network
+tailscale
+
+# Utilities
+isoimagewriter
