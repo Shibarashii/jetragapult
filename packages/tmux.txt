@@ -1,0 +1,6 @@
+# tmux + tmuxp session layouts. Plugins: run tmux-setup.sh once to clone tpm, then prefix + I.
+# One package per line; `#` starts a comment. Install: ./install.sh tmux
+
+tmux
+tmuxp                     # ~/.config/tmuxp/*.yaml; fish abbr `tl`
+git                       # tpm clones plugins
