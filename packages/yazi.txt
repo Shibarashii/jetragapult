@@ -1,0 +1,5 @@
+# Yazi file manager.
+# One package per line; `#` starts a comment. Install: ./install.sh yazi
+
+yazi
+ffmpegthumbnailer         # video previews

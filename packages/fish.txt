@@ -1,0 +1,5 @@
+# fish — login shell.
+# One package per line; `#` starts a comment. Install: ./install.sh fish
+
+fish
+cachyos-fish-config       # sourced by config.fish

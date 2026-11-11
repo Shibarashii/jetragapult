@@ -1,0 +1,5 @@
+# zsh (fallback shell).
+# One package per line; `#` starts a comment. Install: ./install.sh zsh
+
+zsh
+cachyos-zsh-config        # sourced by .zshrc; pulls in powerlevel10k

@@ -1,0 +1,8 @@
+# Noctalia — shell/bar/launcher; hypr binds call `noctalia msg …`.
+# One package per line; `#` starts a comment. Install: ./install.sh noctalia
+
+noctalia
+noctalia-greeter          # login greeter
+python                    # templates.toml post_hook runs scripts/*.py
+papirus-icon-theme
+papirus-folders           # AUR; recolored by scripts/papirus-folders-sync.py
