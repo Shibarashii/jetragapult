@@ -21,6 +21,7 @@ into this repo). Editing files here edits the live config.
 
 - Stow a package: `cd ~/Jetragapult && stow <pkg>` (dry run: `stow -nv <pkg>`)
 - Install packages: `./install.sh` (all lists) or `./install.sh hypr` (one list). Lists live in `packages/<stow-pkg>.txt`, outside the package dirs so stow never links them; `packages/base.txt` is for apps not tied to a stow package. Only list packages explicitly installed and used — no auto-pulled deps, no per-machine lists. Install-only (`yay -S --needed`), never removes, never stows.
+- Setup scripts: `./setup.sh` (all) or `./setup.sh thunar` (one) runs `scripts/<name>.sh`. They handle settings stow can't own: GSettings/dconf, `xdg-mime` defaults, and files apps rewrite (`Thunar/uca.xml`, gtk `bookmarks`). Must be safe to re-run: check before changing, back up before overwriting. Run after `./install.sh`.
 - There is no build or test suite. Verification is per-tool (see each package's rules file).
 
 ## Conventions
