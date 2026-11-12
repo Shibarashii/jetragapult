@@ -33,5 +33,8 @@ steam
 # Network
 tailscale
 
+# Theming
+bibata-cursor-theme-bin   # AUR; Bibata-Modern-Ice (scripts/gtk.sh, ~/.config/uwsm/env)
+
 # Utilities
 isoimagewriter
