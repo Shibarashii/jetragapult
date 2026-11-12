@@ -1,0 +1,11 @@
+# Thunar — FILE_MANAGER in hypr; config in the thunar stow package.
+# One package per line; `#` starts a comment. Install: ./install.sh thunar
+
+thunar
+thunar-volman
+thunar-archive-plugin
+tumbler                   # thumbnails
+file-roller               # archives
+gvfs
+gvfs-mtp                  # phones
+gvfs-smb                  # network shares (Rotom bookmark)
