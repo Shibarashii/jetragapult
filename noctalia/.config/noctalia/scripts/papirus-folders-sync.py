@@ -3,7 +3,8 @@
 
 Called by Noctalia's papirus_folders template post_hook with the rendered
 file (containing one hex color) as argv[1]. Needs the sudoers rule in
-/etc/sudoers.d/papirus-folders so `sudo -n papirus-folders` works.
+/etc/sudoers.d/papirus-folders so `sudo -n papirus-folders` works
+(created by ~/Jetragapult/scripts/noctalia.sh, run via ./setup.sh).
 """
 import colorsys
 import re
