@@ -3,3 +3,9 @@ tmux/.config/tmux/plugins/
 fish/.config/fish/fish_variables
 __pycache__/
 *.pyc
+
+# If stow folds these dirs on a fresh machine, keep app-generated files out.
+thunar/.config/Thunar/*
+!thunar/.config/Thunar/uca.xml
+gtk/.config/gtk-3.0/*
+!gtk/.config/gtk-3.0/bookmarks
