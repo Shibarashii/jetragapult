@@ -6,16 +6,6 @@
 stow
 yay
 
-# Files (Thunar is FILE_MANAGER in hypr)
-thunar
-thunar-volman
-thunar-archive-plugin
-tumbler                   # thumbnails
-file-roller               # archives
-gvfs
-gvfs-mtp                  # phones
-gvfs-smb                  # network shares
-
 # Launched by hypr keybinds
 brave-bin                 # BROWSER
 btop                      # SUPER bind: kitty -e btop
