@@ -2,7 +2,7 @@
 # Run the per-app setup scripts in scripts/ (settings that live outside stow).
 #
 #   ./setup.sh              every scripts/*.sh, in name order
-#   ./setup.sh gtk thunar   only scripts/gtk.sh and scripts/thunar.sh
+#   ./setup.sh gtk          only scripts/gtk.sh
 #
 # Each script is safe to re-run. Packages come first: ./install.sh
 set -euo pipefail

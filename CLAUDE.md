@@ -16,12 +16,19 @@ into this repo). Editing files here edits the live config.
 | `tmux` / `tmuxp` | `~/.config/tmux`, `~/.config/tmuxp` | tmuxp YAMLs are per-project session layouts |
 | `fish`, `zsh` | `~/.config/fish`, `~/.zshrc` | fish is the login shell |
 | `yazi` | `~/.config/yazi` | File manager |
+| `thunar` | `~/.config/Thunar/uca.xml` | GUI file manager custom actions; Thunar writes through the link |
+| `gtk` | `~/.config/gtk-3.0/bookmarks` | GTK/Thunar sidebar bookmarks |
+| `xdg` | `~/.config/mimeapps.list` | Default apps; `xdg-mime default` writes through the link |
+
+Rule of thumb: **plain-text config → stow; non-file state (dconf/GSettings, `systemctl enable`) → `scripts/`.**
+`thunar`/`gtk`/`xdg` link single files into dirs that apps also write to; `.gitignore` keeps the app-generated
+siblings out if stow ever folds those dirs on a fresh machine.
 
 ## Commands
 
 - Stow a package: `cd ~/Jetragapult && stow <pkg>` (dry run: `stow -nv <pkg>`)
 - Install packages: `./install.sh` (all lists) or `./install.sh hypr` (one list). Lists live in `packages/<stow-pkg>.txt`, outside the package dirs so stow never links them; `packages/base.txt` is for apps not tied to a stow package. Only list packages explicitly installed and used — no auto-pulled deps, no per-machine lists. Install-only (`yay -S --needed`), never removes, never stows.
-- Setup scripts: `./setup.sh` (all) or `./setup.sh thunar` (one) runs `scripts/<name>.sh`. They handle settings stow can't own: GSettings/dconf, `xdg-mime` defaults, and files apps rewrite (`Thunar/uca.xml`, gtk `bookmarks`). Must be safe to re-run: check before changing, back up before overwriting. Run after `./install.sh`.
+- Setup scripts: `./setup.sh` (all) or `./setup.sh gtk` (one) runs `scripts/<name>.sh`. Only for state that isn't a file (e.g. `gtk.sh` sets GSettings). Must be safe to re-run. Run after `./install.sh` and `stow`.
 - There is no build or test suite. Verification is per-tool (see each package's rules file).
 
 ## Conventions
